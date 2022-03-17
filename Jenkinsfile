@@ -11,6 +11,13 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_id', url: 'https://github.com/ashish0626/angularPOC.git']]])
             }
         }
+         stage('Scan') {
+          steps {
+                  withSonarQubeEnv(installationName: 'sq1') { 
+                sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+                }
+             }
+        }
         stage('Build Docker Images') {
             steps {
                 script {
