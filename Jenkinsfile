@@ -30,14 +30,14 @@ pipeline {
         }
         stage('docker stop container') {
          steps {
-            sh 'docker ps -f name=practical_newton  -q | xargs --no-run-if-empty docker container stop'
-            sh 'docker container ls -a -fname=practical_newton -q | xargs -r docker container rm'
+            sh 'docker ps -f name=practical_newton1  -q | xargs --no-run-if-empty docker container stop'
+            sh 'docker container ls -a -fname=practical_newton1 -q | xargs -r docker container rm'
          }
        }
        stage('Docker Run') {
         steps {
             script {
-                dockerImage.run("-p 8019:80 --rm --name practical_newton")
+                dockerImage.run("-p 8019:80 --rm --name practical_newton1")
                 }
             }
         }
