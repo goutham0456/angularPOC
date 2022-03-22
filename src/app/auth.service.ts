@@ -11,7 +11,7 @@ export class AuthService {
   errorMsg: any;
   constructor(private http:HttpClient) { }
   login(data: any):Observable<any>{
-    return this.http.post("http://40.74.233.57:8020/api/Auth/Auth",data,{responseType: 'json'}).pipe(
+    return this.http.post("http://20.97.61.49:8020/api/Auth/Auth",data,{responseType: 'json'}).pipe(
       catchError(error => {
           this.errorMsg = error.message;
           return of([this.getServerErrorMessage]);
