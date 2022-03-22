@@ -34,6 +34,12 @@ pipeline {
             sh 'docker container ls -a -fname=practical_newton1 -q | xargs -r docker container rm'
          }
        }
+      stage('Approval') {
+            input {
+            message "Proceed to deploy?"
+             ok "YES"
+          }
+      }   
        stage('Docker Run') {
         steps {
             script {
