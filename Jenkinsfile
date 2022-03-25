@@ -2,7 +2,7 @@ pipeline {
      agent any
      environment {
         dockerImage = ''
-        registry = 'goutham/angularuiapp'
+        registry = 'gawtham/angularuiapp'
         registryCredential ='dockerhub_id'
     }
     stages {
