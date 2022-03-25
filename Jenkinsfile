@@ -2,7 +2,7 @@ pipeline {
      agent any
      environment {
         dockerImage = ''
-        registry = 'ashish0786/angularuiapp'
+        registry = 'goutham/angularuiapp'
         registryCredential ='dockerhub_id'
     }
     stages {
@@ -34,12 +34,12 @@ pipeline {
             sh 'docker container ls -a -fname=practical_newton -q | xargs -r docker container rm'
          }
        }
-      stage('Approval') {
-            input {
-            message "Proceed to deploy?"
-             ok "YES"
-          }
-      }   
+    //   stage('Approval') {
+    //         input {
+    //         message "Proceed to deploy?"
+    //          ok "YES"
+    //       }
+    //   }   
        stage('Docker Run') {
         steps {
             script {
